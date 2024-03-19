@@ -14,6 +14,7 @@ public class Main {
 
         //todo null param check
         //todo infos for cheques
+        //todo parse links https://receipt.taxcom.ru/v01/show?id=46DBDD61-E7BC-45FC-9A30-E6C203832559&utm_source=ofd&utm_medium=receipt&utm_campaign=receipt_email
         var result = new CsvFormatter()
                 .setElements(new LentaChequeHtmlFileParser(new File(args[0])).parse())
                 .setNewLine(3L)
