@@ -4,36 +4,46 @@ import java.util.List;
 
 public class CsvFormatter implements Formatter {
 
-    private final List<String> strings;
-    private final long newLine;
+    private List<String> elements;
+    private long newLine;
+    private char separator;
 
-    public CsvFormatter(List<String> strings) {
-        this(strings, 1L);
+    public CsvFormatter setElements(List<String> strings) {
+        this.elements = strings;
+        return this;
     }
 
-    public CsvFormatter(List<String> strings, Long newLine) {
-        this.strings = strings;
+    public CsvFormatter setNewLine(long newLine) {
         this.newLine = newLine;
+        return this;
+    }
+
+    public CsvFormatter setSeparator(char separator) {
+        this.separator = separator;
+        return this;
     }
 
     public String format() {
+
         var nl = this.newLine;
         var multiplicator = 1;
-        var csv = new StringBuilder();
-        var i = 0;
+        var sb = new StringBuilder();
+        var resultSize = this.elements.size();
 
-        for (int resultSize = this.strings.size(); i < resultSize; ++i) {
-            String text = this.strings.get(i);
+        for (var i = 0; i < resultSize; i++) {
+
+            var text = this.elements.get(i);
+
             if (nl == (i + 1)) {
-                csv.append(text).append(System.lineSeparator());
-                nl = 3L;
-                ++multiplicator;
-                nl *= multiplicator;
-            } else {
-                csv.append(text).append(", ");
+                sb.append(text).append(System.lineSeparator());
+                multiplicator = multiplicator + 1;
+                nl = this.newLine * multiplicator;
+                continue;
             }
+
+            sb.append(text).append(separator);
         }
 
-        return csv.toString();
+        return sb.toString();
     }
 }

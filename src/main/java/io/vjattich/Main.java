@@ -12,10 +12,13 @@ import java.nio.file.Paths;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        String result = new CsvFormatter(
-                new LentaChequeHtmlFileParser(new File(args[0])).parse(),
-                3L
-        ).format();
+        //todo null param check
+        //todo infos for cheques
+        var result = new CsvFormatter()
+                .setElements(new LentaChequeHtmlFileParser(new File(args[0])).parse())
+                .setNewLine(3L)
+                .setSeparator(',')
+                .format();
 
         Files.write(Paths.get("result.csv"), result.getBytes());
     }
