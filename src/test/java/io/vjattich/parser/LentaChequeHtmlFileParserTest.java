@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LentaChequeHtmlFileParserTest {
 
     @Test
-    void parse() throws IOException, URISyntaxException {
+    void parse_test_1() throws IOException, URISyntaxException {
 
         //GIVEN
         var path = Objects.requireNonNull(this.getClass().getClassLoader().getResource("cheques\\lenta 16.03.24.html")).toURI();
@@ -138,4 +138,5 @@ class LentaChequeHtmlFileParserTest {
         );
 
     }
+
 }

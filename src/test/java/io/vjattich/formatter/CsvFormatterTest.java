@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CsvFormatterTest {
 
     @Test
-    public void format() {
+    public void format_test_1() {
 
         //GIVEN
         CsvFormatter csvFormatter = new CsvFormatter()
