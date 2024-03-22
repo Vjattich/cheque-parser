@@ -14,7 +14,7 @@ class CsvFormatterTest {
         //GIVEN
         CsvFormatter csvFormatter = new CsvFormatter()
                 .setElements(IntStream.range(1, 13).mapToObj(Integer::toString).toList())
-                .setNewLine(3L)
+                .setNewLineStep(3L)
                 .setSeparator(',');
         //WHEN
         var formatted = csvFormatter.format();
