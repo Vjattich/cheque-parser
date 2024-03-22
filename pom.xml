@@ -6,7 +6,7 @@
 
     <groupId>io.vjattich</groupId>
     <artifactId>cheque-parser</artifactId>
-    <version>1.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
